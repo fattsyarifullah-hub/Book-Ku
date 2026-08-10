@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('cuy');
 });
 
 Route::get('/dashboard', function () {
@@ -16,5 +17,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::domain('dashboard.booku.local')->group(function() {
+    Route::get('/', [TestController::class, 'test']);
+});
+
+
 
 require __DIR__.'/auth.php';
