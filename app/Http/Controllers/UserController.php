@@ -18,4 +18,18 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         return view('dashboard.user.show', compact('user'));
     }
+
+    public function updateRole(Request $request, User $user)
+    {   
+        $newRole = strtolower($request->role);
+
+        $request->validate([
+            'role' => 'required|in:admin,customer',
+        ]);
+
+        $user->role = $newRole;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Role user berhasil diperbarui.');
+    }
 }

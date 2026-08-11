@@ -1,3 +1,27 @@
-<div>
-    <!-- If you do not have a consistent goal in life, you can not live it in a consistent way. - Marcus Aurelius -->
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body>
+
+    @include('layouts.navigation')
+
+    <p>{{$user->name}}</p>
+    <h3>{{$user->email}}</h3>
+    <h6>{{$user->address}}</h6>
+</body>
+
+</html>

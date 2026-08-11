@@ -12,7 +12,7 @@ class Category extends Model
     protected $fillable = ['name'];
 
     // satu kategori bisa memiliki banyak buku
-    public function book() {
+    public function books() {
         return $this->hasMany(Book::class);
     }
 }

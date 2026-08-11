@@ -67,7 +67,7 @@ class BookController extends Controller
      */
     public function show(string $id)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::findOrFail($id);  
         return view('dashboard.book.show', compact('book'));
     }
 

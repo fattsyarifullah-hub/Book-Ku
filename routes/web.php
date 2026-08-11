@@ -46,6 +46,7 @@ Route::domain('dashboard.booku.local')->group(function() {
         Route::prefix('user')->group(function() {
             Route::get('/', [UserController::class, 'index'])->name('dashboard.user.index');
             Route::get('/{id}', [UserController::class, 'show'])->name('dashboard.user.show');
+            Route::patch('/{user}', [UserController::class, 'updateRole'])->name('dashboard.user.updateRole');
         });
 
         Route::prefix('order')->group(function() {

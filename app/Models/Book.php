@@ -20,7 +20,7 @@ class Book extends Model
     ];
 
     // satu buku wajib memiliki satu kategori
-    public function category() {
+    public function categories() {
         return $this->belongsTo(Category::class);
     }
 
