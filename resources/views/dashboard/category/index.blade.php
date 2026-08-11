@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.dashboard')
+@section('title', 'Dashboard')
+@section('page-title', 'Category Management')
 
 <head>
     <meta charset="UTF-8">
@@ -37,5 +38,7 @@
         @endif</p>
     @endforeach
 </body>
+@section('content')
+    <h1>hi</h1>
 
-</html>
+@endsection

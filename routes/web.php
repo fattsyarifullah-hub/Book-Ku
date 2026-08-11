@@ -10,7 +10,7 @@ use App\Http\Controllers\OrderController;
 Route::domain('dashboard.booku.local')->group(function() {
 
     Route::get('/', function () {
-        return view('test');
+        return view('dashboard.dashboard');
     });
     
     Route::middleware(['auth', 'admin'])->group(function () {
@@ -62,7 +62,7 @@ Route::get('/', function () {
 
 // Route bawaan breeze 
 Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard.dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
     
     Route::middleware('auth')->group(function () {
