@@ -1,3 +1,8 @@
+@extends('layouts.dashboard')
+@section('title', 'Dashboard')
+@section('page-title', 'Edit Book')
+
+@section('content')
 <div>
     <p>edit book page</p>
 
@@ -57,3 +62,5 @@
     </div>
 
 </div>
+
+@endsection

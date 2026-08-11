@@ -1,3 +1,8 @@
+@extends('layouts.dashboard')
+@section('title', 'Dashboard')
+@section('page-title', 'Create Book')
+
+@section('content')
 <div>
     <form action="{{ route('dashboard.book.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -51,3 +56,5 @@
         </div>
     </form>
 </div>
+
+@endsection

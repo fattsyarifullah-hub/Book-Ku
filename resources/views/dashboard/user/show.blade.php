@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.dashboard')
+@section('title', 'Dashboard')
+@section('page-title', 'Users Detail')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+@section('content')
+<p>{{$user->name}}</p>
+<h3>{{$user->email}}</h3>
+<h6>{{$user->address}}</h6>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body>
-
-    @include('layouts.navigation')
-
-    <p>{{$user->name}}</p>
-    <h3>{{$user->email}}</h3>
-    <h6>{{$user->address}}</h6>
-</body>
-
-</html>
+@endsection
