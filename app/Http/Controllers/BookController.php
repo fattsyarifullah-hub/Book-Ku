@@ -139,6 +139,11 @@ class BookController extends Controller
         $deletebook = Book::findOrFail($id);
         $deletebook->delete();
 
+        $deletebook->image; // Ambil nama file gambar sebelum dihapus
+        if ($deletebook->image) {
+            Storage::delete('public/imagebook/' . $deletebook->image);
+        }
+
         return redirect()->route('dashboard.book.index');
     }
 }

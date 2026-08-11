@@ -22,6 +22,24 @@
                         {{ __('Book') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('dashboard.category.index')" :active="request()->routeIs('dashboard.category.index')">
+                        {{ __('Category') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('dashboard.user.index')" :active="request()->routeIs('dashboard.user.index')">
+                        {{ __('Users') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('dashboard.order.index')" :active="request()->routeIs('dashboard.order.index')">
+                        {{ __('Orders') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
