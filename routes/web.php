@@ -6,20 +6,18 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\CartController;
 
 Route::domain('dashboard.booku.local')->group(function() {
 
-    Route::get('/', function () {
-        return view('dashboard.dashboard');
-    });
-    
     Route::middleware(['auth', 'admin'])->group(function () {
         // Route bawaan breeze
-    Route::get('/dashboard', function () {
+    Route::get('/', function () {
         return view('dashboard.dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    })->middleware('verified')->name('dashboard');
     
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::get('/profile', [ProfileController::class, 'editAdmin'])->name('dashboard.profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
@@ -55,18 +53,26 @@ Route::domain('dashboard.booku.local')->group(function() {
     });
 });
 
+
 Route::get('/', function () {
-    return view('cuy');
+    return view('main.index');
+});
+
+
+Route::prefix('catalog')->group(function() {
+    Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
+    Route::get('/{id}', [CatalogController::class, 'show'])->name('catalog.show');
+});
+
+
+Route::prefix('cart')->group(function() {
+    Route::get('/', [CartController::class, 'index'])->name('cart.index');
 });
 
 
 // Route bawaan breeze 
-Route::get('/dashboard', function () {
-        return view('dashboard.dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
-    
     Route::middleware('auth')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::get('/account', [ProfileController::class, 'editCustomer'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });

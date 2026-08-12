@@ -19,6 +19,7 @@
                 </span>
             </div>
 
+            
             <!-- baut navigasi -->
             <nav class="sidebar-nav">
 
@@ -60,7 +61,7 @@
             </nav>
 
             <!-- propil admin -->
-            <div class="sidebar-profile">
+            <a href="{{ route('profile.edit') }}" class="sidebar-profile">
                 <div class="profile-wrapper">
                     A
                 </div>
@@ -72,7 +73,7 @@
                         mimin
                     </div>
                 </div>
-            </div>
+            </a>
         </aside>
 
         <!-- konten utama -->
