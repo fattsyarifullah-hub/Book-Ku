@@ -10,14 +10,23 @@ class CatalogController extends Controller
 {
     public function index(Request $request)
     {   
-        $categories = Category::with('books')->get();
+        $categories = Category::withCount('books')->get();
+
+        $searchAuthorKey = $request->input('search_author');
 
         $authors = Book::select('author')
         ->distinct()
         ->whereNotNull('author')
+        ->when($searchAuthorKey, function ($query) use ($searchAuthorKey) {
+            return $query->where('author', 'like', '%' . $searchAuthorKey . '%');  
+        })
         ->pluck('author');
 
         $query = Book::with('category');
+
+        if ($request->filled('search_author')) {
+            $query->where('author', 'like', '%' . $request->search_author . '%');
+        }
 
         // filter 1 berdasarkan kategori
         if ($request->has('categories') && is_array($request->categories)) {
@@ -44,6 +53,7 @@ class CatalogController extends Controller
     }
 
     public function show($id) {
-
+        $book = Book::with('category')->findOrFail($id);
+        return view('main.catalog.show', compact('book'));
     }
 }

@@ -17,33 +17,40 @@
 
             <div class="filter-author">
                 <h2>Filter berdasarkan penulis</h2>
-                @foreach ($authors as $author)
-                    <label for="">
-                        <input type="checkbox" name="authors[]" value="{{ $author }}" onchange="this.form.submit()"
-                            {{ in_array($author, request('authors', [])) ? 'checked' : '' }}>
-                        <span>{{ $author }}</span>
-                    </label>
-                @endforeach
+                <div class="form-search">
+                    <div class="input-search">
+                        <input type="text" name="search_author" value="{{ request('author') }}">
+                    </div>
+                    <button type="submit">Search</button>
+                    <div class="reset">
+                        <a href="{{ route('catalog.index') }}">
+                            reset
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            
+
             <div class="price-range">
                 <label for="">
-                    <input type="radio" name="price_range" value="under_50" onchange="this.form.submit()" {{ request('price_range') === 'under_50' ? 'checked' : '' }}>
+                    <input type="radio" name="price_range" value="under_50" onchange="this.form.submit()"
+                        {{ request('price_range') === 'under_50' ? 'checked' : '' }}>
                     <span>Under 50 Ribu</span>
                 </label>
             </div>
 
             <div class="price-range">
                 <label for="">
-                    <input type="radio" name="price_range" value="50_to_100" onchange="this.form.submit()" {{ request('price_range') === '50_to_100' ? 'checked' : '' }}>
+                    <input type="radio" name="price_range" value="50_to_100" onchange="this.form.submit()"
+                        {{ request('price_range') === '50_to_100' ? 'checked' : '' }}>
                     <span>50 - 100 Ribu</span>
                 </label>
             </div>
 
             <div class="price-range">
                 <label for="">
-                    <input type="radio" name="price_range" value="over_100" onchange="this.form.submit()" {{ request('price_range') === 'over_100' ? 'checked' : '' }}>
+                    <input type="radio" name="price_range" value="over_100" onchange="this.form.submit()"
+                        {{ request('price_range') === 'over_100' ? 'checked' : '' }}>
                     <span>Diatas 100 ribu</span>
                 </label>
             </div>
@@ -71,10 +78,10 @@
                         <h2>{{ $book->title }}</h2>
                         <p>kategori : {{ $book->category->name ?? '-' }}</p>
                         <p>Penulis : {{ $book->author }}</p>
-                        <p>Harga : {{ Number::currency($book->price, 'IDR', 'id', precision:0) }}</p>
+                        <p>Harga : {{ Number::currency($book->price, 'IDR', 'id', precision: 0) }}</p>
                     </a>
                 </div>
-            @endforeach 
+            @endforeach
         @endif
 
         <div class="paginate-link">

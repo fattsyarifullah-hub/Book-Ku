@@ -8,7 +8,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 
+// Route untuk subdomain dashboard
 Route::domain('dashboard.booku.local')->group(function() {
 
     Route::middleware(['auth', 'admin'])->group(function () {
@@ -53,15 +55,13 @@ Route::domain('dashboard.booku.local')->group(function() {
     });
 });
 
-
-Route::get('/', function () {
-    return view('main.index');
-});
-
+// Route untuk domain utama
+Route::get('/', [HomeController::class, 'index'])->name('main.index');
 
 Route::prefix('catalog')->group(function() {
     Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
     Route::get('/{id}', [CatalogController::class, 'show'])->name('catalog.show');
+    Route::get('/search', [CatalogController::class, 'search'])->name('catalog.search');
 });
 
 
