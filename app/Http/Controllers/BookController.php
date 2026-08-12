@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {   
-        $allbook = Book::all();
+        $allbook = Book::with('Category')->get(); // Mengambil data buku beserta kategori terkait
         return view('dashboard.book.index', compact('allbook'));
     }
 
