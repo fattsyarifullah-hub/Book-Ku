@@ -3,13 +3,18 @@
 @section('page-title', 'Users Overview')
 
 @section('content')
-<form action="{{ route('dashboard.category.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <div>
-        <label for="name">name</label>
-        <input type="text" name="name" id="name" required>
+<div class="cr-wrapper">
+    <div class="form-card">
+        <form action="{{ route('dashboard.category.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <button class="btn-primary" type="submit">Tambah Kategori</button>
+            </div>
+        </form>
     </div>
-    <button type="submit">Create</button>
-</form>
-
+</div>
 @endsection
