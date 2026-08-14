@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderCustomerController;
 
 // Route untuk subdomain dashboard
 Route::domain('dashboard.booku.local')->group(function() {
@@ -20,7 +21,7 @@ Route::domain('dashboard.booku.local')->group(function() {
     })->middleware('verified')->name('dashboard');
     
         Route::get('/profile', [ProfileController::class, 'editAdmin'])->name('dashboard.profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::patch('/profile', [ProfileController::class, 'updateAdmin'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::prefix('book')->group(function() {
@@ -60,20 +61,28 @@ Route::get('/', [HomeController::class, 'index'])->name('main.index');
 
 Route::prefix('catalog')->group(function() {
     Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
-    Route::get('/{id}', [CatalogController::class, 'show'])->name('catalog.show');
+    Route::get('/{book}', [CatalogController::class, 'show'])->name('catalog.show');
     Route::get('/search', [CatalogController::class, 'search'])->name('catalog.search');
 });
 
 
 Route::prefix('cart')->group(function() {
-    Route::get('/', [CartController::class, 'index'])->name('cart.index');
+    Route::get('/', [CartController::class, 'index'])->name('cart.index')->middleware('auth');
+    Route::post('/add', [CartController::class, 'add'])->name('cart.add');
 });
+
+Route::get('/checkout', [OrderCustomerController::class, 'create'])->name('order.checkout');
+
+Route::prefix('orders')->group(function() {
+    Route::post('/', [OrderCustomerController::class, 'store'])->name('order.store');
+    Route::get('/{order}/invoice', [OrderCustomerController::class, 'invoice'])->name('order.invoice');
+})->middleware('auth');
 
 
 // Route bawaan breeze 
     Route::middleware('auth')->group(function () {
-        Route::get('/account', [ProfileController::class, 'editCustomer'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/account', [ProfileController::class, 'editCustomer'])->name('customer.edit');
+        Route::patch('/account', [ProfileController::class, 'updateCustomer'])->name('customer.update');
+        Route::delete('/account', [ProfileController::class, 'destroy'])->name('customer.destroy');
     });
 require __DIR__.'/auth.php';

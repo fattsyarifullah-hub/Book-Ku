@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CartItem extends Model
 {
     protected $table = 'cart_items';
+    protected $fillable = ['user_id', 'book_id', 'quantity'];
    
     // satu cart item wajib memiliki satu user
     public function user() {

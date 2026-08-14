@@ -5,19 +5,19 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
+                    @include('main.account.partials.update-customer-profile-information-form')
                 </div>
             </div>
 
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
+                    @include('main.account.partials.update-customer-password-form')
                 </div>
             </div>
 
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
+                    @include('main.account.partials.delete-customer-form')
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('customer.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -57,7 +57,7 @@
                 </x-dropdown>
             </div>
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('customer.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
@@ -74,4 +74,6 @@
             </div>
         </div>
     </div>
+
+    {{-- list status checkout  --}}
 @endsection
