@@ -25,7 +25,11 @@ class Book extends Model
     }
 
     // satu buku bisa dimiliki banyak order item
-    public function orderitem() {
+    public function orderItem() {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function cartItem() {
+        return $this->hasMany(CartItem::class);
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $table = 'orders';
+    protected $fillable = ['user_id', 'invoice_number', 'order_date', 'total_price', 'address', 'status'];
 
     // satu order wajib memiliki satu user
     public function user() {
@@ -15,7 +16,7 @@ class Order extends Model
     }
 
     // satu order bisa memiliki banyak order item
-    public function orderitem() {
+    public function item() {
         return $this->hasMany(OrderItem::class);
     }
 

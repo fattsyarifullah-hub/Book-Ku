@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {   
-        $allbook = Book::with('Category')->get(); // Mengambil data buku beserta kategori terkait
+        $allbook = Book::with('category')->get();
         return view('dashboard.book.index', compact('allbook'));
     }
 
@@ -65,9 +65,8 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Book $book)
     {
-        $book = Book::findOrFail($id);  
         return view('dashboard.book.show', compact('book'));
     }
 
