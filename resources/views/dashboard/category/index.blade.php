@@ -19,7 +19,7 @@
     {{-- Category Grid --}}
     <div class="cm-grid">
         @forelse ($allcategory as $c)
-        <div class="cm-card">
+        <div class="cm-card" data-search="{{ strtolower($c->name) }}">
             {{-- Card Top: name + book count badge --}}
             <div class="cm-card-top">
                 <h2 class="cm-card-name">{{ $c->name }}</h2>
