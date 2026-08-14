@@ -66,17 +66,20 @@ Route::prefix('catalog')->group(function() {
 });
 
 
-Route::prefix('cart')->group(function() {
-    Route::get('/', [CartController::class, 'index'])->name('cart.index')->middleware('auth');
-    Route::post('/add', [CartController::class, 'add'])->name('cart.add');
-});
+    Route::prefix('cart')->group(function() {
+        Route::get('/', [CartController::class, 'index'])->name('cart.index');
+        Route::post('/add', [CartController::class, 'add'])->name('cart.add');
+        Route::delete('/{cartItem}', [CartController::class, 'destroy'])->name('cart.destroy');
+        Route::post('/update/{cartItem}', [CartController::class, 'update'])->name('cart.update');
+        Route::post('/checkout', [CartController::class, 'checkoutByCart'])->name('cart.checkoutByCart');
+    })->middleware('auth'); 
 
-Route::get('/checkout', [OrderCustomerController::class, 'create'])->name('order.checkout');
+    Route::get('/checkout', [OrderCustomerController::class, 'create'])->name('order.checkout');
 
-Route::prefix('orders')->group(function() {
-    Route::post('/', [OrderCustomerController::class, 'store'])->name('order.store');
-    Route::get('/{order}/invoice', [OrderCustomerController::class, 'invoice'])->name('order.invoice');
-})->middleware('auth');
+    Route::prefix('orders')->group(function() {
+        Route::post('/', [OrderCustomerController::class, 'store'])->name('order.store');
+        Route::get('/{order}/invoice', [OrderCustomerController::class, 'invoice'])->name('order.invoice');
+    })->middleware('auth');
 
 
 // Route bawaan breeze 

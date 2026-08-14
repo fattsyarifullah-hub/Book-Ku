@@ -1,18 +1,23 @@
-<h2>Checkout</h2>
+@extends('layouts.main')
 
-<form action="{{ route('order.store') }}" method="POST">
-    @csrf
-    <input type="hidden" name="book_id" value="{{ $book->id }}">
-    <input type="hidden" name="quantity" value="{{ $quantity }}">
+@section('content')
+    <h2>Checkout</h2>
 
+    <form action="{{ route('order.store') }}" method="POST">
+        @csrf
 
-    <h5>Detail Produk</h5>
-    <p><strong>{{$book->title}}</strong> {{ Number::currency($book->price, 'IDR', 'id', precision: 0)}}</p>
-    <p>Jumlah : {{$quantity}}</p>
-    <p><strong>Total Rp {{Number::currency($total, 'IDR', 'id', precision: 0)}}</strong></p>
+        <h5>Detail Pembelian</h5>
+        @foreach ($items as $list)
+            <h3>{{ $list['title'] }}</h3>
+            <p>{{ $list['quantity'] }} x {{ Number::currency($list['price'], 'IDR', 'id', precision: 0) }}</p>
+            <p>{{ Number::currency($list['subtotal'], 'IDR', 'id', precision: 0)}}</p>
+        @endforeach
 
-    <h5>Alamat Pengiriman</h5>
-    <textarea name="address" id="" cols="30" rows="10" required>{{ old('address', $address) }}</textarea>
+        <p>Total : {{ Number::currency($total, 'IDR', 'id', precision: 0) }}</p>
+        
+        <h5>alamat pengiriman</h5>
+        <textarea name="address" id="" cols="30" rows="10" required> {{old('address', $address)}}</textarea>
 
-    <button type="submit">Pesan</button>
-</form>
+        <button type="submit">Pesan</button>
+    </form>
+@endsection

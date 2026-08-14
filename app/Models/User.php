@@ -43,7 +43,7 @@ class User extends Authenticatable
     }
 
     // satu user bisa memiliki banyak cart item
-    public function cartitem() {
+    public function cartItems() {
         return $this->hasMany(CartItem::class);
     }
 }

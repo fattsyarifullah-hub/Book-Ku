@@ -7,6 +7,7 @@
 @else
     <p style="background-color: blue">Sisa Stok : {{ $book->stock }}</p>
 @endif
+
 <form id="orderForm" action="{{ route('order.checkout') }}" method="GET">
     @csrf
     <input type="hidden" name="book_id" value="{{ $book->id }}">
@@ -37,10 +38,8 @@
     }
     function addToCart() {
         const form = document.getElementById('orderForm');
-        // Ubah action dan method menjadi POST ke cart
         form.action = "{{ route('cart.add') }}";
         form.method = "POST";
-        // Tambahkan CSRF (sudah ada @csrf di form)
         form.submit();
     }
 </script>
