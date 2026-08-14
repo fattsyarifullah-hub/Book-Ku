@@ -195,6 +195,18 @@ button {
     padding: 0 32px;
 }
 
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .page-title {
     font-size: 20px;
     font-weight: 700;
@@ -474,7 +486,9 @@ button {
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
+    transition:
+        background 0.2s,
+        transform 0.15s;
     white-space: nowrap;
     font-family: inherit;
     border: none;
@@ -494,12 +508,18 @@ button {
 }
 
 @media (max-width: 1024px) {
-    .cm-grid { grid-template-columns: repeat(2, 1fr); }
+    .cm-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 640px) {
-    .cm-grid { grid-template-columns: 1fr; }
-    .cm-wrapper { padding: 16px 20px; }
+    .cm-grid {
+        grid-template-columns: 1fr;
+    }
+    .cm-wrapper {
+        padding: 16px 20px;
+    }
 }
 
 /* Card */
@@ -511,11 +531,13 @@ button {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    transition: box-shadow 0.2s, transform 0.2s;
+    transition:
+        box-shadow 0.2s,
+        transform 0.2s;
 }
 
 .cm-card:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
     transform: translateY(-2px);
 }
 

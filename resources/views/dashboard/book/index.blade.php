@@ -4,27 +4,6 @@
 
 @section('content')
 <div class="bm-wrapper">
-
-    {{-- Header Bar --}}
-    <div class="bm-header">
-        <div class="bm-header-left">
-            <div class="bm-search-box">
-                <svg class="bm-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-                <input id="bm-search-input" type="text" class="bm-search-input" placeholder="Search books by title, author...">
-            </div>
-        </div>
-        <div class="bm-header-right">
-            <a id="bm-add-book-btn" href="{{ route('dashboard.book.create') }}" class="bm-btn-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
-                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-                </svg>
-                Add Book
-            </a>
-        </div>
-    </div>
-
     {{-- Table Card --}}
     <div class="bm-card">
         <div class="bm-table-wrapper">
@@ -113,13 +92,4 @@
         </div>
     </div>
 </div>
-
-<script>
-document.getElementById('bm-search-input').addEventListener('input', function () {
-    const q = this.value.toLowerCase();
-    document.querySelectorAll('#bm-books-table tbody tr[data-search]').forEach(function (row) {
-        row.style.display = row.dataset.search.includes(q) ? '' : 'none';
-    });
-});
-</script>
 @endsection
