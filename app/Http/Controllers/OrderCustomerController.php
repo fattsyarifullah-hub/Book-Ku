@@ -17,38 +17,45 @@ class OrderCustomerController extends Controller
 {
     public function create(Request $request) {
 
-        if(session()->has('checkout_items')) {
+        if ($request->has('book_id')) {
+
+            $request->validate([
+                'book_id' => 'required|exists:books,id',
+                'quantity' => 'required|integer|min:1'
+            ]);
+
+            $book = Book::findOrFail($request->book_id);
+            $quantity = $request->quantity;
+            $total = $book->price * $quantity;
+    
+            
+            $items = [
+                [
+                    'book_id' => $book->id,
+                    'title' => $book->title,
+                    'quantity' => $quantity,
+                    'price' => $book->price,
+                    'subtotal' => $total
+                ]
+            ];
+
+            session(['checkout_items' => $items]);
+
+        } else if (session()->has('checkout_items')) {
+
             $items = session('checkout_items');
             $total = collect($items)->sum('subtotal');
-            $address = Auth::user()->address ?? '';
 
-            return view('main.orderCustomer.checkout', compact('items', 'total', 'address'));
+        } else {
+            return redirect()->route('cart.index')->with('error', 'anda belum menambahkan produk apapun');
         }
 
-        $request->validate([
-            'book_id' => 'required|exists:books,id',
-            'quantity' => 'required|integer|min:1'
-        ]);
-
-        $book = Book::findOrFail($request->book_id);
-        $quantity = $request->quantity;
-        $total = $book->price * $quantity;
-
-        $user = Auth::user();
-        $address = $user->address ?? '';
-
-        $items = [
-            [
-                'book_id' => $book->id,
-                'title' => $book->title,
-                'quantity' => $quantity,
-                'price' => $book->price,
-                'subtotal' => $total
-            ]
-        ];
+        $address = Auth::user()->address ?? '';
 
         return view('main.orderCustomer.checkout', compact('items', 'total', 'address'));
-    } 
+
+        }
+
 
     public function store(Request $request) {
         $request->validate([
@@ -62,7 +69,6 @@ class OrderCustomerController extends Controller
         }
 
         $total = collect($items)->sum('subtotal');
-        
         
         $invoice = 'INV-' . mt_rand(1000, 9999) .strtoupper(Str::random(10));
 
@@ -123,13 +129,14 @@ class OrderCustomerController extends Controller
 
         $payment = $order->payment()->latest()->first();
 
-        if ($order->status === 'pending' && !$payment?->payment_type) {
+        if (!$payment) {
             return redirect()->route('order.pay', $order->id);
         }
 
         $strDate = Carbon::parse($order->order_date)->format('d M Y H:i');
 
         $order->load('orderItem.book');
+
         return view('main.orderCustomer.invoice', compact('order', 'strDate', 'payment'));
     }
 }
