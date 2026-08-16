@@ -10,6 +10,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderCustomerController;
+use App\Http\Controllers\MidtransNotifController;
 
 // Route untuk subdomain dashboard
 Route::domain('dashboard.booku.local')->group(function() {
@@ -78,8 +79,11 @@ Route::prefix('catalog')->group(function() {
 
     Route::prefix('orders')->group(function() {
         Route::post('/', [OrderCustomerController::class, 'store'])->name('order.store');
+        Route::get('/{order}/pay', [OrderCustomerController::class, 'pay'])->name('order.pay');
         Route::get('/{order}/invoice', [OrderCustomerController::class, 'invoice'])->name('order.invoice');
     })->middleware('auth');
+
+    Route::post('/midtrans/notification', [MidtransNotifController::class, 'handle'])->name('midtrans.notification');
 
 
 // Route bawaan breeze 

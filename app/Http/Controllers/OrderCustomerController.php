@@ -9,6 +9,9 @@ use App\Models\OrderItem;
 use App\Models\Order;
 use App\Models\Book;
 use Carbon\Carbon;
+use App\Models\Payment;
+use App\Services\Midtrans;
+use App\Services\MidtransService;
 
 class OrderCustomerController extends Controller
 {
@@ -89,7 +92,28 @@ class OrderCustomerController extends Controller
 
         session()->forget('checkout_items');
 
-        return redirect()->route('order.invoice', $order->id);
+        Payment::create([
+            'order_id' => $order->id,
+            'transaction_status' => 'pending',
+            'gross_amount' => $order->total_price
+        ]);
+
+        return redirect()->route('order.pay', $order->id);
+    }
+
+    public function pay(Order $order, MidtransService $midtrans) {
+        if ($order->user_id !== Auth::id()) {
+            abort(403, 'data tidak diorder');
+        }
+
+        if ($order->status !== 'pending') {
+            return redirect()->route('order.invoice', $order->id);
+        }
+
+        $order->load('orderItem.book');
+        $snapToken = $midtrans->createSnapToken($order);
+
+        return view('main.orderCustomer.pay', compact('order', 'snapToken'));
     }
 
     public function invoice(Order $order) {
@@ -97,9 +121,15 @@ class OrderCustomerController extends Controller
             abort(403, 'data tidak diorder');
         }
 
+        $payment = $order->payment()->latest()->first();
+
+        if ($order->status === 'pending' && !$payment?->payment_type) {
+            return redirect()->route('order.pay', $order->id);
+        }
+
         $strDate = Carbon::parse($order->order_date)->format('d M Y H:i');
 
-        $order->load('item.book');
-        return view('main.orderCustomer.invoice', compact('order', 'strDate'));
+        $order->load('orderItem.book');
+        return view('main.orderCustomer.invoice', compact('order', 'strDate', 'payment'));
     }
 }

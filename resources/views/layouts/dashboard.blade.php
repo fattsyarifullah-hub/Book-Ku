@@ -61,7 +61,7 @@
             </nav>
 
             <!-- propil admin -->
-            <a href="{{ route('profile.edit') }}" class="sidebar-profile">
+            <a href="{{ route('dashboard.profile.edit') }}" class="sidebar-profile">
                 <div class="profile-wrapper">
                     A
                 </div>
