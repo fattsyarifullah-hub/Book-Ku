@@ -100,7 +100,7 @@ class BookController extends Controller
 
         if ($request->hasFile('image')) {
             if ($editbook->image) {
-                Storage::delete('public/image/' . $editbook->image);
+                Storage::delete('public/imagebook/' . $editbook->image);
             }
 
             $image = $request->file('image');
