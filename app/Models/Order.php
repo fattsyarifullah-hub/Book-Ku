@@ -16,10 +16,12 @@ class Order extends Model
     }
 
     // satu order bisa memiliki banyak order item
-    public function item() {
+    public function orderItem() {
         return $this->hasMany(OrderItem::class);
     }
 
-
+    public function payment() {
+        return $this->hasMany(Payment::class);
+    }
 }
 

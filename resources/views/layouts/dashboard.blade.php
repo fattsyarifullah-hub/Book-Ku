@@ -23,7 +23,7 @@
             <!-- baut navigasi -->
             <nav class="sidebar-nav">
 
-                <a href="{{ route('dashboard') }}"
+                <a href="{{ route('dashboard.index') }}"
                     class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <span class="nav-text">
                         Dashboard
@@ -61,7 +61,7 @@
             </nav>
 
             <!-- propil admin -->
-            <a href="{{ route('profile.edit') }}" class="sidebar-profile">
+            <a href="{{ route('dashboard.profile.edit') }}" class="sidebar-profile">
                 <div class="profile-wrapper">
                     A
                 </div>

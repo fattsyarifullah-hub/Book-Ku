@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Book;
+use App\Models\Order;
+use App\Models\Category;
+use App\Models\User;
+
+class DashboardController extends Controller
+{
+    public function index() {
+        $orderlast = Order::latest()->take(1)->get();
+        $user = User::latest()->take(3)->get();
+        $bookCount = Book::count();
+        $categories = Category::count();
+
+        return view('dashboard.dashboard', compact('bookCount', 'orderlast', 'user', 'categories'));
+    }
+
+
+}

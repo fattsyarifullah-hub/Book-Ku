@@ -1,6 +1,23 @@
 @extends('layouts.main')
 
 @section('content')
+
+@if($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
+
+    @if (session('success'))
+        <p>{{ session('success') }}</p>
+    @endif
+
+    @if (session('error'))
+        <p>{{ session('error') }}</p>
+    @endif
+    
     <h2>Checkout</h2>
 
     <form action="{{ route('order.store') }}" method="POST">
