@@ -11,15 +11,14 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderCustomerController;
 use App\Http\Controllers\MidtransNotifController;
+use App\Http\Controllers\DashboardController;
 
 // Route untuk subdomain dashboard
 Route::domain('dashboard.booku.local')->group(function() {
 
     Route::middleware(['auth', 'admin'])->group(function () {
         // Route bawaan breeze
-    Route::get('/', function () {
-        return view('dashboard.dashboard');
-    })->middleware('verified')->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('verified');
     
         Route::get('/profile', [ProfileController::class, 'editAdmin'])->name('dashboard.profile.edit');
         Route::patch('/profile', [ProfileController::class, 'updateAdmin'])->name('profile.update');
@@ -53,6 +52,8 @@ Route::domain('dashboard.booku.local')->group(function() {
 
         Route::prefix('order')->group(function() {
             Route::get('/', [OrderController::class, 'index'])->name('dashboard.order.index');
+            Route::get('/{order}', [OrderController::class, 'show'])->name('dashboard.order.show');
+            Route::patch('/{order}', [OrderController::class, 'updateStatus'])->name('dashboard.order.updateStatus');
         });
     });
 });

@@ -23,7 +23,7 @@
             <!-- baut navigasi -->
             <nav class="sidebar-nav">
 
-                <a href="{{ route('dashboard') }}"
+                <a href="{{ route('dashboard.index') }}"
                     class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <span class="nav-text">
                         Dashboard
