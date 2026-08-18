@@ -12,14 +12,18 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />    
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     </head>
     <body>
         <div class="auth-container">
             <div class="auth-card">
                 <div class="auth-logo">
                     <h2>Boo<span>ku</span></h2>
+<<<<<<< HEAD
                     <p>E-Commerce Book store Dashboard</p>
+=======
+                    <p>Premium Book Store</p>
+>>>>>>> 0f4bcf4d4ffe5ea6106c28129bb88df9ba45169b
                 </div>
                 {{ $slot }}
             </div>
