@@ -3,6 +3,7 @@
 @section('page-title', 'Order Detail')
 
 @section('content')
+    <div class="or-status-wrapper">
     <div class="order-journey-status">
         <div
             style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px 32px; font-family: ui-sans-serif, system-ui, sans-serif; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
@@ -80,37 +81,49 @@
 
         </div>
     </div>
-
-    <div class="customer-detail">
-        <h1>Detail Customer</h1>
-        <h3>{{ $order->user->name }}</h3>
-        <p>{{ $order->user->email }}</p>
-        <small>{{ $order->user->address }}</small>
     </div>
-
-    <div class="order-items-detail">
-        <table>
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>Quantity</td>
-                    <td>Price</td>
-                    <td>Subtotal</td>
-                </tr>
-            </thead>
-            @foreach ($order->orderItem as $item)
-                <tbody>
-                    <tr>
-                        <td>{{ $item->book->title }}</td>
-
-                        <td>{{ $item->quantity }}</td>
-
-                        <td>{{ Number::currency($item->book->price, 'IDR', 'id', precision:0) }}</td>
-
-                        <td>{{ Number::currency($item->order->total_price, 'IDR', 'id', precision:0) }}</td>
-                    </tr>
-                </tbody>
-            @endforeach
-        </table>
+    
+    <div class="or-info-wrapper">
+        <div class="or-card">
+            <h2>Order Items</h2>
+            <div class="or-table-wrapper">
+                <table class="bm-table">
+                    <thead>
+                        <th class="bm-th">Name</th>
+                        <th class="bm-th">Quantity</th>
+                        <th class="bm-th">Price</th>
+                        <th class="bm-th">Subtotal</th>
+                    </thead>
+                    @foreach ($order->orderItem as $item)
+                        <tbody>
+                            <tr class="bm-tr">
+                                <td class="bm-td">{{ $item->book->title }}</td>
+                                <td class="bm-td">{{ $item->quantity }}</td>
+                                <td class="bm-td">{{ Number::currency($item->book->price, 'IDR', 'id', precision:0) }}</td>
+                                <td class="bm-td">{{ Number::currency($item->order->total_price, 'IDR', 'id', precision:0) }}</td>
+                            </tr>
+                        </tbody>
+                    @endforeach
+                </table>
+                <div class="price-info">
+                    <small><strong>Total Price: {{ Number::currency($item->order->total_price, 'IDR', 'id', precision:0) }}</strong></small>
+                </div>
+            </div>
+        </div>
+        <div class="or-card">
+            <h3>Detail Customer</h3>
+            <div>
+                <label for="p">Nama</label>
+                <p>{{ $order->user->name }}</p>
+            </div>
+            <div>
+                <label for="p">Email</label>
+                <p>{{ $order->user->email }}</p>
+            </div>
+            <div>
+                <label for="small">Alamat</label>
+                <p>{{ $order->user->address }}</p>
+            </div>
+        </div>
     </div>
 @endsection

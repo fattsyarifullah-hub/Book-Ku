@@ -14,6 +14,7 @@
                     <th class="bm-th">Total Price</th>
                     <th class="bm-th">Address</th>
                     <th class="bm-th">Status</th>
+                    <th class="bm-th">Action</th>
                 </thead>
                 <tbody>
                     @foreach ($order as $list)
