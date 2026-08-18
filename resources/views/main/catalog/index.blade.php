@@ -176,27 +176,17 @@
                                     {{-- Info --}}
                                     <div class="book-info">
 
-                                        <span class="book-badge">
-                                            Bestseller
-                                        </span>
-
                                         <h2 class="book-title">
                                             {{ $book->title }}
                                         </h2>
 
                                         <p class="book-author">
-                                            {{ $book->author }}
+                                            {{ $book->category->name }}
                                         </p>
 
-
-                                        {{-- Rating --}}
-                                        <div class="book-rating">
-
-                                            <span class="rating-number">
-                                                (4.8)
-                                            </span>
-
-                                        </div>
+                                        <p class="book-author">
+                                            {{ $book->author }}
+                                        </p>
 
                                         {{-- FOOTER --}}
                                         <div class="book-footer">
