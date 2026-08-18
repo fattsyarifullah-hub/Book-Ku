@@ -30,6 +30,9 @@
                 </span>
             </a>
             <nav class="user-nav">
+                <a href="{{ url('/') }}" class="nav-link">
+                    Home
+                </a>
                 <a href="{{ route('catalog.index') }}" class="nav-link">
                     Catalog
                 </a>
@@ -154,7 +157,7 @@
             </div>
             <div class="footer-bottom">
                 <p class="copyright">
-                    © {{ date('Y') }} BookVault e-Commerce.
+                    © {{ date('Y') }} BooKu e-Commerce.
                     All rights reserved.
                 </p>
             </div>

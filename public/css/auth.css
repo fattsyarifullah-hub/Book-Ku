@@ -29,9 +29,10 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: radial-gradient(circle at top right, #e0f2fe, transparent 40%),
-                radial-gradient(circle at bottom left, #ecfdf5, transparent 40%),
-                #f8fafc;
+    background:
+        radial-gradient(circle at top right, #e0f2fe, transparent 40%),
+        radial-gradient(circle at bottom left, #ecfdf5, transparent 40%),
+        #f8fafc;
 }
 
 .auth-card {
@@ -140,9 +141,79 @@ body {
     text-decoration: underline;
 }
 
+.auth-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.auth-actions__meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.auth-link {
+    color: var(--text-secondary);
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.auth-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.auth-link span {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.auth-submit {
+    width: 90px;
+    height: 40px;
+    margin-left: 0;
+    white-space: nowrap;
+    background: var(--primary);
+    color: var(--bg-body);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 10px;
+    border: none;
+    transition: ease 0.4s;
+}
+
+.auth-submit:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
 .error-message {
     font-size: 12px;
     color: #ff4d4f;
     margin-top: 6px;
     display: block;
+}
+
+@media (max-width: 480px) {
+    .auth-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .auth-actions__meta {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .auth-submit {
+        width: 100%;
+    }
 }

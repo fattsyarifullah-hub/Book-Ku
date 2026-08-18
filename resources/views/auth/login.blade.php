@@ -36,21 +36,16 @@
             <label for="remember_me" style="font-size: 13px; color: var(--text-secondary); cursor: pointer;">Remember me on this device</label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-            
+        <div class="auth-actions">
+            <div class="auth-actions__meta">
+                @if (request()->getHost() == "booku.local")
+                    <a class="auth-link" href="{{ route('register') }}">
+                        {{ __('Don’t have an account?') }} <span>{{ __('Sign up') }}</span>
+                    </a>
+                @endif
+            </div>
 
-            @if (request()->getHost() == "booku.local")
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
-                {{ __("Don't Have An Account?") }}
-            </a>
-            @endif
-
-            <x-primary-button class="ms-3">
+            <x-primary-button class="auth-submit">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
