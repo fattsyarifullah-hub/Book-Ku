@@ -1,3 +1,17 @@
+:root {
+    --primary: #5146e5;
+    --primary-dark: #4338ca;
+
+    --dark: #101829;
+
+    --text: #172033;
+    --text-secondary: #64748b;
+
+    --border: #dce3ed;
+
+    --background: #f8f9fc;
+    --white: #ffffff;
+}
 
 .catalog-page {
     width: 100%;
@@ -24,7 +38,7 @@
 
 .catalog-page .filter-box {
     padding: 20px 0;
-    border-bottom: 1px solid #e8eee9;
+    border-bottom: 1px solid var(--border);
 }
 
 .catalog-page .filter-box:first-child {
@@ -83,8 +97,8 @@
 
     border-radius: 10px;
 
-    background: #edf5ef;
-    color: #398052;
+    background: var(--primary);
+    color: var(--white);
 
     font-size: 10px;
     text-align: center;
@@ -143,7 +157,7 @@
 .catalog-page .author-buttons button {
     border: none;
 
-    background: #101829;
+    background: var(--primary-dark);
     color: white;
 
     cursor: pointer;
@@ -179,7 +193,7 @@
 }
 
 .catalog-page .price-item input {
-    accent-color: #101829;
+    accent-color: var(--primary-dark);
 }
 
 
@@ -321,7 +335,7 @@
 
     padding: 10px;
 
-    background: #e6f0eb;
+    background: var(--text-secondary);
 }
 
 .catalog-page .book-image img {
@@ -433,7 +447,7 @@
     font-size: 11px;
     font-weight: 700;
 
-    color: #267344;
+    color: var(--primary-dark);
 }
 
 .catalog-page .add-cart {
@@ -447,8 +461,8 @@
     border: none;
     border-radius: 50%;
 
-    background: #194d2d;
-    color: white;
+    background: var(--primary-dark);
+    color: var(--white);
 
     font-size: 18px;
     line-height: 1;

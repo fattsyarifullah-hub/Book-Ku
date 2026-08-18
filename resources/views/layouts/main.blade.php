@@ -68,7 +68,6 @@
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-
                                         <x-dropdown-link :href="route('logout')"
                                             onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -101,7 +100,7 @@
                             <i class="bi bi-book"></i>
                         </div>
                         <span class="footer-logo-name">
-                            BookVault
+                            BooKu
                         </span>
                     </div>
                     <p class="footer-description">
