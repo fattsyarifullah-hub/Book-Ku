@@ -1,356 +1,14 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
-:root {
-    --primary: #5146e5;
-    --primary-dark: #4338ca;
-
-    --dark: #101829;
-
-    --text: #172033;
-    --text-secondary: #64748b;
-
-    --border: #dce3ed;
-
-    --background: #f8f9fc;
-    --white: #ffffff;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f8f9fc;
-    color: #172033;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.user-header {
-    height: 80px;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e9f2;
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    width: 100%;
-    max-width: 1280px;
-    margin: auto;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-/* Logo */
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 215px;
-}
-
-.brand-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: #5146e5;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 21px;
-}
-
-.brand-name {
-    font-size: 20px;
-    font-weight: 700;
-    color: #172033;
-}
-
-/* Navigation */
-
-.user-nav {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-.nav-link {
-    font-size: 14px;
-    font-weight: 500;
-    color: #29364d;
-    transition: 0.2s;
-}
-
-.nav-link:hover {
-    color: #5146e5;
-}
-
-/* Cart */
-
-.cart-link {
-    padding-left: 22px;
-    border-left: 1px solid #dce3ed;
-    font-size: 22px;
-    color: #29364d;
-    svg {
-        fill: var(--dark);
-    }
-}
-
-/* Profile */
-
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.profile-image {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #e2e8f0;
-}
-
-.profile-name {
-    font-size: 14px;
-    font-weight: 600;
-    color: #334155;
-}
-
-/* Mobile menu */
-
-.mobile-menu {
-    display: none;
-    border: none;
-    background: transparent;
-    font-size: 25px;
-    color: #172033;
-    cursor: pointer;
-}
-
-.user-main {
-    min-height: calc(100vh - 80px);
-}
-
-
-.user-footer {
-    background: #101829;
-    color: white;
-    padding: 75px 0 25px;
-}
-
-.footer-container {
-    width: 100%;
-    max-width: 1280px;
-    margin: auto;
-    padding: 0 30px;
-}
-
-.footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 50px;
-    padding-bottom: 65px;
-}
-
-/* Footer Brand */
-
-.footer-brand {
-    max-width: 390px;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.footer-logo-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: #5146e5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 19px;
-}
-
-.footer-logo-name {
-    font-size: 19px;
-    font-weight: 700;
-}
-
-.footer-description {
-    color: #94a3b8;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* Footer columns */
-
-.footer-column h3 {
-    font-size: 14px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.footer-column ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.footer-column a {
-    color: #94a3b8;
-    font-size: 14px;
-    transition: 0.2s;
-}
-
-.footer-column a:hover {
-    color: white;
-}
-
-/* Footer Bottom */
-
-.footer-bottom {
-    border-top: 1px solid #202b40;
-    padding-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.copyright {
-    color: #94a3b8;
-    font-size: 13px;
-}
-
-.social-links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.social-links a {
-    color: #94a3b8;
-    font-size: 20px;
-    transition: 0.2s;
-}
-
-.social-links a:hover {
-    color: white;
-}
-
-@media (max-width: 900px) {
-    .header-container {
-        padding: 0 20px;
-    }
-
-    .brand {
-        min-width: auto;
-    }
-
-    .header-search {
-        display: none;
-    }
-
-    .user-nav {
-        gap: 18px;
-    }
-
-    .nav-link {
-        display: none;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-
-    .footer-top {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .user-header {
-        height: 70px;
-    }
-
-    .header-container {
-        padding: 0 15px;
-    }
-
-    .brand-name {
-        font-size: 18px;
-    }
-
-    .cart-link {
-        border-left: none;
-        padding-left: 0;
-    }
-
-    .profile-name {
-        display: none;
-    }
-
-    .footer-top {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .user-footer {
-        padding: 50px 0 20px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-}
-
-.notification {
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    cursor: pointer;
-}
-
-/* catalog */
 
 .catalog-page {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 20px 50px;
+
     color: #26352d;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 
 .catalog-page .catalog-layout {
     display: grid;
@@ -358,6 +16,7 @@ a {
     gap: 28px;
     align-items: start;
 }
+
 
 .catalog-page .catalog-sidebar {
     width: 100%;
@@ -383,6 +42,11 @@ a {
     color: #26352d;
 }
 
+
+/* =========================================================
+   CATEGORY FILTER
+   ========================================================= */
+
 .catalog-page .category-list {
     display: flex;
     flex-direction: column;
@@ -404,7 +68,7 @@ a {
     width: 14px;
     height: 14px;
 
-    accent-color: #267344;
+    accent-color: #101829;
 
     cursor: pointer;
 }
@@ -425,6 +89,11 @@ a {
     font-size: 10px;
     text-align: center;
 }
+
+
+/* =========================================================
+   AUTHOR SEARCH
+   ========================================================= */
 
 .catalog-page .author-search {
     display: flex;
@@ -447,7 +116,7 @@ a {
 }
 
 .catalog-page .author-search input:focus {
-    border-color: #267344;
+    border-color: #101829;
 }
 
 .catalog-page .author-buttons {
@@ -474,7 +143,7 @@ a {
 .catalog-page .author-buttons button {
     border: none;
 
-    background: #1f6138;
+    background: #101829;
     color: white;
 
     cursor: pointer;
@@ -486,6 +155,11 @@ a {
     color: #59635d;
     background: white;
 }
+
+
+/* =========================================================
+   PRICE FILTER
+   ========================================================= */
 
 .catalog-page .price-list {
     display: flex;
@@ -505,8 +179,13 @@ a {
 }
 
 .catalog-page .price-item input {
-    accent-color: #267344;
+    accent-color: #101829;
 }
+
+
+/* =========================================================
+   CLEAR FILTER
+   ========================================================= */
 
 .catalog-page .clear-filter {
     margin-top: 20px;
@@ -525,9 +204,19 @@ a {
     text-decoration: underline;
 }
 
+
+/* =========================================================
+   CATALOG CONTENT
+   ========================================================= */
+
 .catalog-page .catalog-content {
     min-width: 0;
 }
+
+
+/* =========================================================
+   CATALOG HEADER
+   ========================================================= */
 
 .catalog-page .catalog-header {
     min-height: 58px;
@@ -581,6 +270,11 @@ a {
     outline: none;
 }
 
+
+/* =========================================================
+   BOOK GRID
+   ========================================================= */
+
 .catalog-page .book-grid {
     display: grid;
 
@@ -588,6 +282,11 @@ a {
 
     gap: 14px;
 }
+
+
+/* =========================================================
+   BOOK CARD
+   ========================================================= */
 
 .catalog-page .book-card {
     overflow: hidden;
@@ -607,6 +306,11 @@ a {
 
     box-shadow: 0 8px 20px rgba(31, 61, 43, 0.08);
 }
+
+
+/* =========================================================
+   BOOK IMAGE
+   ========================================================= */
 
 .catalog-page .book-image {
     height: 190px;
@@ -637,6 +341,11 @@ a {
     transform: scale(1.03);
 }
 
+
+/* =========================================================
+   BOOK INFORMATION
+   ========================================================= */
+
 .catalog-page .book-info {
     padding: 12px 11px 13px;
 }
@@ -650,7 +359,7 @@ a {
     border-radius: 3px;
 
     background: #eaf5ed;
-    color: #267344;
+    color: #101829;
 
     font-size: 9px;
     font-weight: 600;
@@ -682,6 +391,11 @@ a {
     text-overflow: ellipsis;
 }
 
+
+/* =========================================================
+   RATING
+   ========================================================= */
+
 .catalog-page .book-rating {
     display: flex;
     align-items: center;
@@ -701,6 +415,11 @@ a {
     font-size: 9px;
     color: #969d99;
 }
+
+
+/* =========================================================
+   PRICE + ADD BUTTON
+   ========================================================= */
 
 .catalog-page .book-footer {
     display: flex;
@@ -747,6 +466,11 @@ a {
     background: #267344;
 }
 
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
 .catalog-page .empty-books {
     padding: 50px 20px;
 
@@ -758,6 +482,11 @@ a {
     color: #89918c;
     font-size: 13px;
 }
+
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
 
 .catalog-page .catalog-pagination {
     display: flex;
@@ -819,6 +548,11 @@ a {
     border-color: #267344;
     color: #267344;
 }
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 900px) {
     .catalog-page .catalog-layout {

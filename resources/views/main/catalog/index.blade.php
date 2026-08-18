@@ -76,6 +76,15 @@
                                 <input type="radio" name="price_range" value="under_50" onchange="this.form.submit()"
                                     {{ request('price_range') === 'under_50' ? 'checked' : '' }}>
                                 <span>
+                                    Dibawah Rp50.000
+                                </span>
+
+                            </label>
+
+                            <label class="price-item">
+                                <input type="radio" name="price_range" value="50_to_100" onchange="this.form.submit()"
+                                    {{ request('price_range') === '50_to_100' ? 'checked' : '' }}>
+                                <span>
                                     Rp50.000 - Rp100.000
                                 </span>
 

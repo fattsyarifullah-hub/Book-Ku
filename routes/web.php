@@ -89,8 +89,7 @@ Route::prefix('catalog')->group(function() {
 
 // Route bawaan breeze 
     Route::middleware('auth')->group(function () {
-        Route::get('/account', [ProfileController::class, 'indexCustomer'])->name('customer.index');
-        Route::get('/account/edit', [ProfileController::class, 'editCustomer'])->name('customer.edit');
+        Route::get('/account', [ProfileController::class, 'editCustomer'])->name('customer.edit');
         Route::patch('/account', [ProfileController::class, 'updateCustomer'])->name('customer.update');
         Route::delete('/account', [ProfileController::class, 'destroy'])->name('customer.destroy');
     });

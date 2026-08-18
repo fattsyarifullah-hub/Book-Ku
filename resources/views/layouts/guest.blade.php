@@ -19,7 +19,7 @@
             <div class="auth-card">
                 <div class="auth-logo">
                     <h2>Boo<span>ku</span></h2>
-                    <p>Premium Book Store</p>
+                    <p>E-Commerce Book store Dashboard</p>
                 </div>
                 {{ $slot }}
             </div>
