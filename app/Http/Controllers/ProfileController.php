@@ -12,6 +12,11 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {   
+
+    public function history() {
+        $orderHistory = Auth::user()->order()->get();
+        return view('main.account.history', compact('orderHistory'));
+    }
     /**
      * Display the user's profile form.
      */
