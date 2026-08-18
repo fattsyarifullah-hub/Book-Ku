@@ -58,7 +58,21 @@
                             <tr>
                                 <td class="invoice">{{ $o->invoice_number }}</td>
                                 <td>Rp {{ number_format($o->total_price, 0, ',', '.') }}</td>
-                                <td><span class="{{ $o->status === 'pending' ? 'bg-red-700' : ($o->status) }} ">{{$o->status}}</span></td>
+                                
+                                @switch($o->status)
+                                    @case('pending')
+                                    @php $color = 'background-color: red;'; @endphp
+                                    @break
+                                    
+                                    @case('processing')
+                                    @php $color = 'background-color: blue;'; @endphp
+                                    @break
+
+                                    @case('completed')
+                                    @php $color = 'background-color: green;'; @endphp
+                                    @break
+                                @endswitch
+                                <td><span style="{{ $color }}">{{$o->status}}</span></td>
                             </tr>
                         @endforeach
                     </tbody>
