@@ -1,8 +1,5 @@
 @extends('layouts.main')
 
-@push('styles')
-    @vite('public/css/cart.css')
-@endpush
 @section('title', 'Book-Ku | Cart')
 
 @section('content')
