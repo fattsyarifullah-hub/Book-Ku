@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-@push('styles')
-    @vite('resources/css/catalog.css')
-@endpush
-
 @section('content')
 
     <div class="catalog-page">

@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Scripts -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     @stack('styles')
 </head>
 
@@ -22,7 +21,7 @@
                 </span>
             </a>
             <nav class="user-nav">
-                <a href="{{ route('') }}" class="nav-link">
+                <a href="#" class="nav-link">
                     Catalog
                 </a>
                 <a href="#" class="nav-link">

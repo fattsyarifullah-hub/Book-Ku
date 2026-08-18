@@ -5,21 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Mediku') }}</title>
+        <title>{{ config('app.name', 'Booku') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />    
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     </head>
     <body>
         <div class="auth-container">
             <div class="auth-card">
                 <div class="auth-logo">
-                    <h2>Medi<span>ku</span></h2>
-                    <p>Premium Medical Dashboard Portal</p>
+                    <h2>Boo<span>ku</span></h2>
+                    <p>Premium Book Store</p>
                 </div>
                 {{ $slot }}
             </div>
