@@ -56,7 +56,4 @@
         </div>
     </form>
 
-    <div class="auth-footer">
-        Don't have an account? <a href="{{ route('register') }}">Sign Up</a>
-    </div>
 </x-guest-layout>
