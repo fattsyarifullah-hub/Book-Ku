@@ -22,7 +22,7 @@
                 </span>
             </a>
             <nav class="user-nav">
-                <a href="{{ route('') }}" class="nav-link">
+                <a href="#" class="nav-link">
                     Catalog
                 </a>
                 <a href="#" class="nav-link">
@@ -34,7 +34,7 @@
                 <a href="{{ route('customer.edit') }}" class="profile">
                     <span class="notification">A</span>
                     <span class="profile-name">
-                        {{ Auth::user()->name }}
+                            nigga
                     </span>
                 </a>
                 <button class="mobile-menu">
