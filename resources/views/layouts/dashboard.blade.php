@@ -23,7 +23,7 @@
                 </span>
             </div>
 
-            
+
             <!-- baut navigasi -->
             <nav class="sidebar-nav">
 
@@ -33,7 +33,7 @@
                         Dashboard
                     </span>
                 </a>
-                
+
                 <a href="{{ route('dashboard.book.index') }}"
                     class="nav-link {{ request()->routeIs('dashboard.book.index') ? 'active' : '' }}">
                     <span class="nav-text">
@@ -161,6 +161,10 @@
                     card.style.display = q === '' || card.dataset.search.includes(q) ? '' : 'none';
                 });
             } else if (route.startsWith('dashboard.user')) {
+                document.querySelectorAll('.bm-tr[data-search]').forEach(function (card) {
+                    card.style.display = q === '' || card.dataset.search.includes(q) ? '' : 'none';
+                });
+            } else if (route.startsWith('dashboard.order')) {
                 document.querySelectorAll('.bm-tr[data-search]').forEach(function (card) {
                     card.style.display = q === '' || card.dataset.search.includes(q) ? '' : 'none';
                 });

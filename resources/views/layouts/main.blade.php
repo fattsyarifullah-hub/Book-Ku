@@ -30,7 +30,7 @@
                 </span>
             </a>
             <nav class="user-nav">
-                <a href="{{ url('/') }}" class="nav-link">
+                <a href="{{ route('main.index') }}" class="nav-link">
                     Home
                 </a>
                 <a href="{{ route('catalog.index') }}" class="nav-link">
