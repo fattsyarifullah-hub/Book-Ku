@@ -11,6 +11,7 @@ class CartController extends Controller
     public function index()
     {   
         $cartItems = Auth::user()->cartItems()->with('book')->get();
+        
         return view('main.cart.index', compact('cartItems'));
     }
 

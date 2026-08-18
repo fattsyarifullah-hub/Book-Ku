@@ -68,13 +68,13 @@ Route::prefix('catalog')->group(function() {
 });
 
 
-    Route::prefix('cart')->group(function() {
+    Route::middleware('auth')->prefix('cart')->group(function() {
         Route::get('/', [CartController::class, 'index'])->name('cart.index');
         Route::post('/add', [CartController::class, 'add'])->name('cart.add');
         Route::delete('/{cartItem}', [CartController::class, 'destroy'])->name('cart.destroy');
         Route::post('/update/{cartItem}', [CartController::class, 'update'])->name('cart.update');
         Route::post('/checkout', [CartController::class, 'checkoutByCart'])->name('cart.checkoutByCart');
-    })->middleware('auth'); 
+    }); 
 
     Route::get('/checkout', [OrderCustomerController::class, 'create'])->name('order.checkout');
 
