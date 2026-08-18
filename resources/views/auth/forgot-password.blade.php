@@ -1,6 +1,9 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    <div style="text-align: center; margin-bottom: 24px;">
+        <h3 style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Lupa Password?</h3>
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+            {{ __('Masukkan alamat email Anda yang terdaftar dan kami akan mengirimkan link untuk mereset password Anda.') }}
+        </p>
     </div>
 
     <!-- Session Status -->
@@ -10,16 +13,24 @@
         @csrf
 
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input id="email" class="form-control" type="email" name="email" value="{{ old('email') }}" required autofocus placeholder="name@example.com" />
+            @if ($errors->has('email'))
+                <span class="error-message">{{ $errors->first('email') }}</span>
+            @endif
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
+        <div class="auth-actions" style="margin-top: 24px;">
+            <div class="auth-actions__meta">
+                <a class="auth-link" href="{{ route('login') }}">
+                    &larr; <span>{{ __('Kembali ke Login') }}</span>
+                </a>
+            </div>
+
+            <button type="submit" class="btn-auth" style="width: auto; padding: 10px 20px;">
+                {{ __('Kirim Link Reset') }}
+            </button>
         </div>
     </form>
 </x-guest-layout>

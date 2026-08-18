@@ -48,9 +48,9 @@
                 <table class="orders-table">
                     <thead>
                         <tr>
-                            <th>Invoice Number</th>
-                            <th>Total Price</th>
-                            <th>Status</th>
+                            <th class="bm-th">Invoice Number</th>
+                            <th class="bm-th">Total Price</th>
+                            <th class="bm-th">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,18 +61,24 @@
                                 
                                 @switch($o->status)
                                     @case('pending')
-                                    @php $color = 'background-color: red;'; @endphp
-                                    @break
-                                    
+                                        @php $statusClass = 'status-pending'; @endphp
+                                        @break
+
                                     @case('processing')
-                                    @php $color = 'background-color: blue;'; @endphp
-                                    @break
+                                        @php $statusClass = 'status-processing'; @endphp
+                                        @break
 
                                     @case('completed')
-                                    @php $color = 'background-color: green;'; @endphp
-                                    @break
+                                        @php $statusClass = 'status-completed'; @endphp
+                                        @break
+
+                                    @default
+                                        @php $statusClass = 'status-pending'; @endphp
+                                        @break
                                 @endswitch
-                                <td><span style="{{ $color }}">{{$o->status}}</span></td>
+                                <td>
+                                    <span class="in-status {{ $statusClass }}">{{ ucfirst($o->status) }}</span>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

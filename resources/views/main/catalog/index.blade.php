@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Book-Ku | Catalog')
+
 @section('content')
 
     <div class="catalog-page">

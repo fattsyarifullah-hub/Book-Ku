@@ -99,7 +99,7 @@
                                     class="book-cart"
                                     aria-label="Lihat buku"
                                 >
-                                    <i class="bi bi-arrow-up-right"></i>
+                                    <i class="bi bi-arrow-up-right">➡️</i>
                                 </a>
                             </div>
                         </div>
