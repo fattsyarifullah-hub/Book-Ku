@@ -85,7 +85,7 @@
     
     <div class="or-info-wrapper">
         <div class="or-card">
-            <h2>Order Items</h2>
+            <h2><strong>Order Items</strong></h2>
             <div class="or-table-wrapper">
                 <table class="bm-table">
                     <thead>
@@ -111,7 +111,7 @@
             </div>
         </div>
         <div class="or-card">
-            <h3>Detail Customer</h3>
+            <h3><strong>Detail Customer</strong></h3>
             <div>
                 <label for="p">Nama</label>
                 <p>{{ $order->user->name }}</p>

@@ -34,7 +34,7 @@
                             <form action="{{ route('dashboard.user.updateRole', $user->id) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <select name="role" id="" onchange="this.form.submit()">
+                                <select name="role" class="select-action" id="" onchange="this.form.submit()">
                                     <option value="admin" {{ strtolower($user->role) === 'admin' ? 'selected' : '' }}>Admin</option>
                                     <option value="customer" {{ strtolower($user->role) === 'customer' ? 'selected' : '' }}>Customer</option>
                                 </select>

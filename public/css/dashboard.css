@@ -948,7 +948,7 @@ button {
     font-weight: 500;
 }
 
-select {
+.select-action {
     appearance: none;
     background-color: var(--bg-white);
     border: 1px solid var(--border);
@@ -962,7 +962,7 @@ select {
     transition: border-color 0.2s;
 }
 
-select:focus {
+.select-action:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
