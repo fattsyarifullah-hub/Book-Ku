@@ -11,12 +11,14 @@ use App\Models\User;
 class DashboardController extends Controller
 {
     public function index() {
-        $orderlast = Order::latest()->take(1)->get();
+        $orderCount = Order::count();
+        $orderlast = Order::latest()->take(10)->get();
+        $userCount = User::count();
         $user = User::latest()->take(3)->get();
         $bookCount = Book::count();
         $categories = Category::count();
 
-        return view('dashboard.dashboard', compact('bookCount', 'orderlast', 'user', 'categories'));
+        return view('dashboard.dashboard', compact('bookCount', 'orderCount', 'orderlast', 'userCount', 'user', 'categories'));
     }
 
 
