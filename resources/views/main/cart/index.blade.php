@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Book-Ku | Cart')
+
 @section('content')
 
     @if($errors->any())

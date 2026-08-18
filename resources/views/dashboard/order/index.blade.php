@@ -38,7 +38,7 @@
                             <form action="{{ route('dashboard.order.updateStatus', $list->id) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <select name="status" id="" onchange="this.form.submit()">
+                                <select name="status" class="select-action" id="" onchange="this.form.submit()">
                                     <option value="pending" {{ strtolower($list->status) === 'pending' ? 'selected' : '' }}>Pending</option>
                                     <option value="processing" {{ strtolower($list->status) === 'processing' ? 'selected' : '' }}>Processing</option>
                                     <option value="completed" {{ strtolower($list->status) === 'completed' ? 'selected' : '' }}>Completed</option>

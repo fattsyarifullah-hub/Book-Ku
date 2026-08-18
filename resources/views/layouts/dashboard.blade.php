@@ -28,7 +28,7 @@
             <nav class="sidebar-nav">
 
                 <a href="{{ route('dashboard.index') }}"
-                    class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                    class="nav-link {{ request()->routeIs('dashboard.index') ? 'active' : '' }}">
                     <span class="nav-text">
                         Dashboard
                     </span>
