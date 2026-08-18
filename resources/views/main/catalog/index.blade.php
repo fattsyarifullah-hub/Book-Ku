@@ -203,9 +203,6 @@
                                                 {{ Number::currency($book->price, 'IDR', 'id', precision: 0) }}
                                             </p>
 
-                                            <button type="button" class="add-cart" onclick="event.preventDefault();">
-                                                +
-                                            </button>
 
                                         </div>
 
