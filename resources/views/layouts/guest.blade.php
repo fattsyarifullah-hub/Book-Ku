@@ -19,11 +19,7 @@
             <div class="auth-card">
                 <div class="auth-logo">
                     <h2>Boo<span>ku</span></h2>
-<<<<<<< HEAD
                     <p>E-Commerce Book store Dashboard</p>
-=======
-                    <p>Premium Book Store</p>
->>>>>>> 0f4bcf4d4ffe5ea6106c28129bb88df9ba45169b
                 </div>
                 {{ $slot }}
             </div>
