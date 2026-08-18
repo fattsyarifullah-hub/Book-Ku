@@ -65,8 +65,9 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
-    {
+    public function show(string $id)
+    {   
+        $book = Book::findOrFail($id);
         return view('dashboard.book.show', compact('book'));
     }
 
