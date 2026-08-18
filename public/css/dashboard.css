@@ -34,6 +34,10 @@
 
     /* component */
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    --surface: #ffffff;
+    --surface-light: #f8fafc;
+    --transition: all 0.2s ease-in-out;
 }
 
 * {
@@ -100,6 +104,12 @@ button {
 .logo-text {
     font-size: 18px;
     font-weight: 700;
+}
+
+.logo-text-color {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
 }
 
 /* Navigation */
@@ -1034,4 +1044,51 @@ select:focus {
     background: var(--primary-hover);
     transform: translateY(-2px);
     color: white;
+}
+
+.or-wrapper {
+    padding: 24px 32px;
+    display: flex;
+    gap: 10px;
+}
+
+.or-info-wrapper {
+    padding: 24px 32px;
+    gap: 10px;
+    display: flex;
+}
+
+.or-table-wrapper {
+    overflow-x: auto;
+}
+
+.or-card:nth-child(1) {
+    padding: 20px;
+    width: 65%;
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.or-card:nth-child(2) {
+    padding: 20px;
+    width: 35%;
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.or-card:nth-child(2) > div {
+    padding: 5px;
+}
+
+.or-status-wrapper {
+    padding: 20px;
+}
+
+.price-info {
+    color: var(--text-primary);
+    padding: 4px;
 }

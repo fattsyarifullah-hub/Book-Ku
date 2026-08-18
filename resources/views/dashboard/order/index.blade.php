@@ -14,6 +14,7 @@
                     <th class="bm-th">Total Price</th>
                     <th class="bm-th">Address</th>
                     <th class="bm-th">Status</th>
+                    <th class="bm-th">Action</th>
                 </thead>
                 <tbody>
                     @foreach ($order as $list)
@@ -25,10 +26,10 @@
                             <p>{{$list->user->name}}</p>
                         </td>
                         <td class="bm-td">
-                            <p>{{$list->order_date}}</p>
+                            <p>{{\Carbon\Carbon::parse($list->order_date)->format('d-m-Y')}}</p>
                         </td>
                         <td class="bm-td">
-                            <p>{{Number::currency($list->total_price, 'IDR', 'id', precision:0)}}</p>
+                            <p>{{ Number::currency($list->total_price, 'IDR', 'id', precision:0)}}</p>
                         </td>
                         <td class="bm-td">
                             <p>{{$list->address}}</p>
