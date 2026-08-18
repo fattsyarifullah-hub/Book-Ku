@@ -27,7 +27,7 @@
             <a href="{{ url('/') }}">home</a>
             <a href="{{ route('catalog.index') }}">catalog</a>
             <a href="{{ route('cart.index') }}">cart</a>
-            <a href="{{ route('customer.edit') }}">profile</a>
+            <a href="{{ route('customer.index') }}">profile</a>
         </div>
     </nav>
 

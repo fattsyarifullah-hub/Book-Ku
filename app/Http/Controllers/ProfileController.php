@@ -8,9 +8,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
-{
+{   
+    public function indexCustomer() {
+
+        $user = Auth::user()->order()->get();
+
+        return view('main.account.index', compact('user'));
+    }
+
     /**
      * Display the user's profile form.
      */
@@ -26,7 +34,7 @@ class ProfileController extends Controller
      */
     public function editCustomer(Request $request): View
     {
-        return view('main.account.index', [
+        return view('main.account.edit', [
             'user' => $request->user(),
         ]);
     }
@@ -44,7 +52,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('dashboard.profile.edit')->with('status', 'profile-updated');
     }
 
     public function updateCustomer(ProfileUpdateRequest $request): RedirectResponse
