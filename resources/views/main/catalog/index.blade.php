@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-@push('styles')
-    @vite('resources/css/catalog.css')
-@endpush
-
 @section('content')
 
     <div class="catalog-page">
@@ -79,6 +75,15 @@
                             <label class="price-item">
                                 <input type="radio" name="price_range" value="under_50" onchange="this.form.submit()"
                                     {{ request('price_range') === 'under_50' ? 'checked' : '' }}>
+                                <span>
+                                    Dibawah Rp50.000
+                                </span>
+
+                            </label>
+
+                            <label class="price-item">
+                                <input type="radio" name="price_range" value="50_to_100" onchange="this.form.submit()"
+                                    {{ request('price_range') === '50_to_100' ? 'checked' : '' }}>
                                 <span>
                                     Rp50.000 - Rp100.000
                                 </span>
@@ -180,27 +185,17 @@
                                     {{-- Info --}}
                                     <div class="book-info">
 
-                                        <span class="book-badge">
-                                            Bestseller
-                                        </span>
-
                                         <h2 class="book-title">
                                             {{ $book->title }}
                                         </h2>
 
                                         <p class="book-author">
-                                            {{ $book->author }}
+                                            {{ $book->category->name }}
                                         </p>
 
-
-                                        {{-- Rating --}}
-                                        <div class="book-rating">
-
-                                            <span class="rating-number">
-                                                (4.8)
-                                            </span>
-
-                                        </div>
+                                        <p class="book-author">
+                                            {{ $book->author }}
+                                        </p>
 
                                         {{-- FOOTER --}}
                                         <div class="book-footer">

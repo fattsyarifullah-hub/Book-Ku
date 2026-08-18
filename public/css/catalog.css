@@ -1,8 +1,3 @@
-/* =========================================================
-   CATALOG PAGE
-   Semua styling menggunakan .catalog-page
-   agar tidak memengaruhi halaman lain
-   ========================================================= */
 
 .catalog-page {
     width: 100%;
@@ -15,10 +10,6 @@
 }
 
 
-/* =========================================================
-   LAYOUT
-   ========================================================= */
-
 .catalog-page .catalog-layout {
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
@@ -26,10 +17,6 @@
     align-items: start;
 }
 
-
-/* =========================================================
-   SIDEBAR
-   ========================================================= */
 
 .catalog-page .catalog-sidebar {
     width: 100%;
@@ -81,7 +68,7 @@
     width: 14px;
     height: 14px;
 
-    accent-color: #267344;
+    accent-color: #101829;
 
     cursor: pointer;
 }
@@ -129,7 +116,7 @@
 }
 
 .catalog-page .author-search input:focus {
-    border-color: #267344;
+    border-color: #101829;
 }
 
 .catalog-page .author-buttons {
@@ -156,7 +143,7 @@
 .catalog-page .author-buttons button {
     border: none;
 
-    background: #1f6138;
+    background: #101829;
     color: white;
 
     cursor: pointer;
@@ -192,7 +179,7 @@
 }
 
 .catalog-page .price-item input {
-    accent-color: #267344;
+    accent-color: #101829;
 }
 
 
@@ -372,7 +359,7 @@
     border-radius: 3px;
 
     background: #eaf5ed;
-    color: #267344;
+    color: #101829;
 
     font-size: 9px;
     font-weight: 600;

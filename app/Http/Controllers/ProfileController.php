@@ -12,13 +12,6 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {   
-    public function indexCustomer() {
-
-        $user = Auth::user()->order()->get();
-
-        return view('main.account.index', compact('user'));
-    }
-
     /**
      * Display the user's profile form.
      */
