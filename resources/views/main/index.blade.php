@@ -9,7 +9,7 @@
             <div class="hero-text">
                 <span class="hero-badge">
                     <i class="bi bi-stars"></i>
-                    Selamat datang di Book-Ku
+                    Selamat datang di BooKu
                 </span>
                 <h1>
                     Temukan Buku yang
@@ -39,7 +39,7 @@
                 </div>
                 <div class="hero-book">
                     <i class="bi bi-book"></i>
-                    <span>BOOK<br>KU</span>
+                    <span>BOOKU</span>
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@
         <div class="home-container">
             <div class="why-heading">
                 <span class="section-label">
-                    Kenapa Book-Ku?
+                    Kenapa BooKu?
                 </span>
                 <h2>
                     Belanja buku jadi lebih menyenangkan.

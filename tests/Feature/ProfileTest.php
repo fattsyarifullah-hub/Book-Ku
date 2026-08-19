@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\User;
 
 test('profile page is displayed', function () {
@@ -48,6 +52,45 @@ test('email verification status is unchanged when the email address is unchanged
         ->assertRedirect('/profile');
 
     $this->assertNotNull($user->refresh()->email_verified_at);
+});
+
+test('customer order history page displays user history', function () {
+    $user = User::factory()->create();
+    $category = Category::create(['name' => 'Fiction']);
+    $book = Book::create([
+        'category_id' => $category->id,
+        'title' => 'Laravel for Beginners',
+        'description' => 'A practical guide',
+        'author' => 'Jane Doe',
+        'stock' => 20,
+        'price' => 120000,
+        'image' => 'books/default.jpg',
+    ]);
+
+    $order = Order::create([
+        'user_id' => $user->id,
+        'invoice_number' => 'BK-2026-0001',
+        'order_date' => now(),
+        'total_price' => 240000,
+        'address' => 'Jl. Merdeka No. 12',
+        'status' => 'processing',
+    ]);
+
+    OrderItem::create([
+        'order_id' => $order->id,
+        'book_id' => $book->id,
+        'quantity' => 2,
+        'price' => 120000,
+    ]);
+
+    $response = $this
+        ->actingAs($user)
+        ->get('/history/account');
+
+    $response
+        ->assertOk()
+        ->assertSee('Order History')
+        ->assertSee('BK-2026-0001');
 });
 
 test('user can delete their account', function () {

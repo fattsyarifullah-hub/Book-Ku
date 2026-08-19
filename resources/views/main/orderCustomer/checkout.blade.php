@@ -54,7 +54,7 @@
                 </svg>
                 Alamat Pengiriman
             </h2>
-
+            
             <form action="{{ route('order.store') }}" method="POST" id="checkoutForm">
                 @csrf
                 <div class="mb-6">
