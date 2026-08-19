@@ -91,13 +91,9 @@ button {
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
     margin-right: 10px;
 }
 

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/logo/logo.png') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -24,7 +25,7 @@
         <div class="header-container">
             <a href="{{ url('/') }}" class="brand">
                 <div class="brand-icon">
-                    <i class="bi bi-book"></i>
+                    <img src="{{ asset('img/logo/logo.png') }}" alt="logo">
                 </div>
                 <span class="brand-name">
                     BooKu

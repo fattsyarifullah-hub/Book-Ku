@@ -18,7 +18,7 @@
                 </thead>
                 <tbody>
                     @foreach ($order as $list)
-                    <tr class="bm-tr" data-search="{{ strtolower($user->name . ' ' . $user->email . ' ' . ($user->phone_number ?? '')) }}>
+                    <tr class="bm-tr" data-search="{{ strtolower($list->user->name . ' ' . $list->user->email . ' ' . ($list->user->phone_number ?? '')) }}">
                         <td class="bm-td">
                             <h3>{{$list->invoice_number}}</h3>
                         </td>

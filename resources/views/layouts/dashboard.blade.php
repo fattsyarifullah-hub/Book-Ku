@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Dashboard')</title>
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/logo/logo.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -13,7 +14,7 @@
         <aside class="sidebar">
             <div class="sidebar-logo">
                 <div class="logo-icon">
-                    📖
+                    <img src="{{ asset('img/logo/logo.png') }}" alt="logo">
                 </div>
                 <span class="logo-text">
                     Boo
