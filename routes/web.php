@@ -76,13 +76,13 @@ Route::prefix('catalog')->group(function() {
         Route::post('/checkout', [CartController::class, 'checkoutByCart'])->name('cart.checkoutByCart');
     }); 
 
-    Route::get('/checkout', [OrderCustomerController::class, 'create'])->name('order.checkout');
-
-    Route::prefix('orders')->group(function() {
+    
+    Route::middleware('auth')->prefix('orders')->group(function() {
+        Route::get('/checkout', [OrderCustomerController::class, 'create'])->name('order.checkout');
         Route::post('/', [OrderCustomerController::class, 'store'])->name('order.store');
         Route::get('/{order}/pay', [OrderCustomerController::class, 'pay'])->name('order.pay');
         Route::get('/{order}/invoice', [OrderCustomerController::class, 'invoice'])->name('order.invoice');
-    })->middleware('auth');
+    });
 
     Route::post('/midtrans/notification', [MidtransNotifController::class, 'handle'])->name('midtrans.notification');
 

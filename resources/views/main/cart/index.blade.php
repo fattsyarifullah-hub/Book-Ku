@@ -64,22 +64,25 @@
                     <table class="cart-table">
                         <thead>
                             <tr>
-                                <th>
+                                <th class="bm-th">
                                     Pilih
                                 </th>
-                                <th>
+                                <th class="bm-th">
                                     Buku
                                 </th>
-                                <th>
+                                <th class="bm-th">
+                                    Info
+                                </th>
+                                <th class="bm-th">
                                     Harga
                                 </th>
-                                <th>
+                                <th class="bm-th">
                                     Jumlah
                                 </th>
-                                <th>
+                                <th class="bm-th">
                                     Total
                                 </th>
-                                <th>
+                                <th class="bm-th">
                                     Aksi
                                 </th>
                             </tr>
@@ -99,33 +102,37 @@
                                                 <img src="{{ asset('storage/imagebook/' . $list->book->image) }}"
                                                     alt="{{ $list->book->title }}">
                                             </div>
-
-                                            <div class="book-cart-info">
-                                                <h3 class="book-cart-title">
-                                                    {{ $list->book->title }}
-                                                </h3>
-
-                                                <p class="book-cart-author">
-                                                    {{ $list->book->author }}
-                                                </p>
-                                            </div>
                                         </div>
                                     </td>
 
                                     <td>
+
+                                        <div class="book-cart-info">
+                                            <h3 class="book-cart-title">
+                                                {{ $list->book->title }}
+                                            </h3>
+
+                                            <p class="book-cart-author">
+                                                {{ $list->book->author }}
+                                            </p>
+                                        </div>
+                                    </td>
+
+                                    <td class="bm-td">
                                         <p class="book-price">
                                             {{ Number::currency($list->book->price, 'IDR', 'id', precision: 0) }}
                                         </p>
                                     </td>
 
-                                    <td>
+                                    <td class="bm-td">
                                         <form action="{{ route('cart.update', $list->id) }}" method="POST"
                                             class="quantity-form">
                                             @csrf
 
                                             <input type="number" name="quantity" value="{{ $list->quantity }}"
                                                 min="1" max="{{ $list->book->stock }}"
-                                                data-id="{{ $list->id }}" data-price="{{ $list->book->price }}" class="quantity-input">
+                                                data-id="{{ $list->id }}" data-price="{{ $list->book->price }}"
+                                                class="quantity-input">
 
                                             <button type="submit" class="update-btn">
                                                 Update

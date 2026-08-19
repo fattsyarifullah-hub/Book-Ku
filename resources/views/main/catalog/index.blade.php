@@ -20,10 +20,10 @@
                         </h2>
 
                         <div class="category-list">
-                            <label class="category-item">
+                            {{-- <label class="category-item">
                                 <input type="checkbox" name="categories[]" value="" onchange="this.form.submit()">
                                 <span>Semua Kategori</span>
-                            </label>
+                            </label> --}}
 
                             @foreach ($categories as $category)
                                 <label class="category-item">
